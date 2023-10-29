@@ -1,7 +1,4 @@
 # mintoku
- 
-# DEMO
- 
 mintokuとはみんなのニッチな特技を紹介するサイト
  
 # Features

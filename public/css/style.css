@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hannari', sans-serif; /* default font */
+  color: black; /* default text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  background-image: url(../image/image1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100%;
+  height: 400px;
+  width: 100vw;
+  max-width: 100vw !important;
+}
+
+.header-img {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+}
+
+.header-img > img {
+  min-width: calc(400px / 1024 * 1792);
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+}
+
+.header-img > h1 {
+  font-size: 48px;
+  margin-top: 2.3em;
+  font-family: 'Nicomoji', cursive; /* Title font */
+}
+
+h4 {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.sort-options {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.sort-options a:hover {
+  color: #aaa;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
+}
+
+td {
+  width: 25%; /* Since we want 4 columns */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Slight white tint to make them visible */
+  border-radius: 20px;
+}
+
+.top-half,
+.bottom-half {
+  padding: 20px;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #aaa;
+}
+
+.tokugi-card {
+  height: 100%;
+}
+
+.tokugi-card-td {
+  padding: 15px;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= userComments[0].username %> のコメント</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h2><%= userComments[0].username %> のとくぎ</h2>
+    <ul>
+      <% for (let comment of userComments) { %>
+      <h1><u><%= comment.skill %></u></h1>
+      <h2>方法、詳細：<%= comment.comment %></h2>
+      <p>Date: <%= comment.date %></p>
+      <form
+        action="/like/<%= comment.username %>/<%= comment.skill %>"
+        method="post"
+      >
+        <button type="submit">Like</button>
+        <span><%= comment.likes %> Likes</span>
+        <input
+          type="hidden"
+          name="redirect"
+          value="/user/<%= comment.username %>"
+        />
+      </form>
+      <% } %>
+    </ul>
+
+    <p class="mt-4"><a href="/">みんなのとくぎへ</a></p>
+  </body>
+</html>

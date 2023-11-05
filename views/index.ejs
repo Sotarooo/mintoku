@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body style="background-color: #f2ffff">
     <div class="header-img">
       <img src="image/image1.png" />
       <h1 class="text-center"><%= title %></h1>
@@ -26,16 +26,15 @@
         特技に困ってるあなたへ。しょうもない特技を紹介するサイト。
       </h5>
       <div style="height: 90px"></div>
-      <div class="btn">
-        <a class="text-center btn btn-primary" href="/comment">とくぎを投稿</a>
-      </div>
+
+      <a class="text-center btn1" href="/comment">とくぎを投稿</a>
     </div>
 
     <div class="mt-4">
-      <div class="sort-options text-center mb4">
-        <a href="/?sort=likes" class="btn btn-primary">Sort by Likes</a>
-        <a href="/?sort=oldest" class="btn btn-primary">Sort by Oldest</a>
-        <a href="/" class="btn btn-primary">Sort by Newest</a>
+      <div class="sort-options mb4">
+        <a href="/?sort=likes" class="btn btn-primary">いいね順</a>
+        <a href="/?sort=oldest" class="btn btn-primary">古い順</a>
+        <a href="/" class="btn btn-primary">新しい順</a>
       </div>
 
       <table>
@@ -46,7 +45,7 @@
         <tr>
           <% } %>
           <td class="tokugi-card-td">
-            <div class="card tokugi-card">
+            <div class="card1 tokugi-card">
               <div class="card-body">
                 <a href="/user/<%= comment.username %>">
                   <p
@@ -59,18 +58,18 @@
                     主:<%= comment.username %><br />
                   </p>
                 </a>
+
                 <form
                   action="/like/<%= comment.username %>/<%= comment.skill %>"
                   method="post"
                 >
-                  <button type="submit">Like</button>
+                  <button type="submit" class="heart">&hearts;</button>
                   <span><%= comment.likes %> Likes</span>
-                  <input
-                    type="hidden"
-                    name="redirect"
-                    value="/user/<%= comment.username %>"
-                  />
                 </form>
+
+                <div class="date">
+                  <p><%= comment.date %></p>
+                </div>
               </div>
             </div>
           </td>

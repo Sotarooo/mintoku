@@ -24,7 +24,7 @@
     "username": "まちょお",
     "skill": "きんにく一瞬でつける",
     "comment": "ぽぽぽ",
-    "likes": 0,
+    "likes": 1,
     "date": "2023-10-23T16:16:07"
   },
   {
@@ -45,7 +45,7 @@
     "username": "もけお",
     "skill": "せーたー好き",
     "comment": "ぴぴ",
-    "likes": 0,
+    "likes": 1,
     "date": "2023-10-23T17:06:34"
   },
   {
@@ -59,7 +59,14 @@
     "username": "やまと",
     "skill": "眼鏡を作れる",
     "comment": "頑張る",
-    "likes": 10,
+    "likes": 11,
     "date": "2023-10-25T18:05:09"
+  },
+  {
+    "username": "rockman",
+    "skill": "make a rock",
+    "comment": "collect sands \r\n",
+    "likes": 2,
+    "date": "2023-11-05T15:36:51"
   }
 ]

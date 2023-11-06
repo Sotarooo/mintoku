@@ -12,6 +12,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
@@ -32,9 +36,9 @@
 
     <div class="mt-4">
       <div class="sort-options mb4">
-        <a href="/?sort=likes" class="btn btn-primary">いいね順</a>
-        <a href="/?sort=oldest" class="btn btn-primary">古い順</a>
-        <a href="/" class="btn btn-primary">新しい順</a>
+        <a href="/?sort=likes" class="btn2">いいね順　　|</a>
+        <a href="/?sort=oldest" class="btn2">古い順</a>
+        <a href="/" class="btn2">| 　　新しい順</a>
       </div>
 
       <table>
@@ -48,22 +52,19 @@
             <div class="card1 tokugi-card">
               <div class="card-body">
                 <a href="/user/<%= comment.username %>">
-                  <p
-                    class="card-title"
-                    style="font-size: 1.25em; margin-bottom: 2em"
-                  >
-                    <%= comment.skill %>
-                  </p>
-                  <p class="card-text" style="margin-bottom: 0">
-                    主:<%= comment.username %><br />
-                  </p>
+                  <div class="card-content">
+                    <p class="card-title"><%= comment.skill %></p>
+                    <p class="card-text" style="margin-bottom: 0">
+                      主: <%= comment.username %><br />
+                    </p>
+                  </div>
                 </a>
 
                 <form
                   action="/like/<%= comment.username %>/<%= comment.skill %>"
                   method="post"
                 >
-                  <button type="submit" class="heart">&hearts;</button>
+                  <button type="submit" class="heart">💙</button>
                   <span><%= comment.likes %> Likes</span>
                 </form>
 

@@ -1,0 +1,77 @@
+/* General Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+  padding: 20px;
+  color: #333;
+}
+
+h1,
+h2 {
+  color: #444;
+}
+
+/* Styling for skill headers */
+h1 {
+  font-size: 24px;
+  color: #0056b3; /* Dark blue color for skills */
+  margin-bottom: 10px;
+}
+
+/* Detail style */
+h2 {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+/* Comment date style */
+p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* List Styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Like button and counter styles */
+form {
+  margin-top: 10px;
+}
+
+form button {
+  background-color: #4caf50; /* Green background */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form span {
+  margin-left: 10px;
+}
+
+/* Link Styles */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Margin top class for spacing */
+.mt-4 {
+  margin-top: 16px;
+}

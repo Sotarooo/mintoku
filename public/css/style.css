@@ -33,6 +33,12 @@ body {
   font-family: 'Hannari', sans-serif;
   margin-bottom: 25px;
 }
+.title2 {
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  -webkit-text-stroke: 0.5px #fff;
+}
 a {
   color: black;
   text-decoration: none;
@@ -75,6 +81,7 @@ td.tokugi-card-td {
   padding: 15px;
   min-height: 2mm;
   height: 1mm;
+  max-width: 335px;
 }
 .card1 {
   position: relative;

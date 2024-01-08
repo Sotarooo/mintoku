@@ -3,25 +3,33 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="css/comment.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-    <h1>Welcome to <%= title %></h1>
+  <body style="background-color: #f2ffff">
+    <div class="header-img">
+      <img src="image/image1.png" />
+      <h2><%= title %></h2>
 
-    <p class="mt-4"><a href="/">Display Page</a></p>
-
-    <h1>Write a Comment</h1>
-
+      <div class="btn">
+        <a class="text-center btn1" href="/">ホームに戻る</a>
+      </div>
+    </div>
     <form action="/comment" method="post">
-      <label for="username">Your name:</label>
+      <label for="username">ユーザー名</label>
       <input type="text" id="username" name="username" required /><br />
 
-      <label for="skill">Skill Title:</label>
+      <label for="skill">特技のタイトル</label>
       <input type="text" id="skill" name="skill" required /><br />
 
-      <label for="comment">How-to Details:</label>
+      <label for="comment">やり方、手順、コツなど</label>
       <textarea id="comment" name="comment" required></textarea><br />
       <button type="submit" onclick="return validateForm()">
-        Submit Comment
+        とくぎを投稿
       </button>
     </form>
 

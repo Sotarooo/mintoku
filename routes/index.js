@@ -37,7 +37,7 @@ router.get('/', (req, res, next) => {
 
 // GET comment page
 router.get('/comment', (req, res, next) => {
-  res.render('comment', { title: 'Create Comment Page' });
+  res.render('comment', { title: 'しょうもない"とくぎ"を教えてね' });
 });
 
 // POST to add a comment

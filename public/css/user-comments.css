@@ -1,63 +1,58 @@
 /* General Body Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f2ffff;
   line-height: 1.6;
-  padding: 20px;
   color: #333;
 }
 
-h1,
-h2 {
-  color: #444;
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.header-img {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.header-img img {
+  width: 100%;
+  height: auto;
 }
 
 /* Styling for skill headers */
-h1 {
+.skill-title {
   font-size: 24px;
   color: #0056b3; /* Dark blue color for skills */
-  margin-bottom: 10px;
 }
 
 /* Detail style */
-h2 {
+.skill-details {
   font-size: 18px;
-  margin-top: 5px;
 }
 
 /* Comment date style */
-p {
+.date {
   font-size: 14px;
-  color: #666;
-  margin-top: 5px;
-}
-
-/* List Styles */
-ul {
-  list-style-type: none;
-  padding: 0;
 }
 
 /* Like button and counter styles */
-form {
-  margin-top: 10px;
+.like-form {
+  gap: 10px;
 }
 
-form button {
+.like-form button {
   background-color: #4caf50; /* Green background */
   color: white;
   border: none;
   padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
   border-radius: 5px;
 }
 
-form span {
+.like-form span {
   margin-left: 10px;
 }
 
@@ -72,6 +67,20 @@ a:hover {
 }
 
 /* Margin top class for spacing */
-.mt-4 {
-  margin-top: 16px;
+.mt-4,
+.mt-5 {
+  margin-top: 1.5rem;
+}
+
+.mb-3,
+.mb-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.comments-list .comment {
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

@@ -3,29 +3,45 @@
   <head>
     <title><%= userComments[0].username %> のコメント</title>
     <link rel="stylesheet" href="/css/user-comments.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
   </head>
-  <body style="background-color: #f2ffff">
-    <h2><%= userComments[0].username %> のとくぎ</h2>
-    <ul>
-      <% for (let comment of userComments) { %>
-      <h1><u><%= comment.skill %></u></h1>
-      <h2>方法、詳細：<%= comment.comment %></h2>
-      <p>Date: <%= comment.date %></p>
-      <form
-        action="/like/<%= comment.username %>/<%= comment.skill %>"
-        method="post"
-      >
-        <button type="submit">Like</button>
-        <span><%= comment.likes %> Likes</span>
-        <input
-          type="hidden"
-          name="redirect"
-          value="/user/<%= comment.username %>"
-        />
-      </form>
-      <% } %>
-    </ul>
-
-    <p class="mt-4"><a href="/">みんなのとくぎへ</a></p>
+  <body>
+    <div class="container mt-5">
+      <header class="header-img text-center mb-3">
+        <img src="image/image1.png" class="img-fluid" alt="Header Image" />
+      </header>
+      <h2 class="text-center mb-3"><%= userComments[0].username %> のとくぎ</h2>
+      <div class="comments-list">
+        <% for (let comment of userComments) { %>
+        <div class="comment mb-4">
+          <h1 class="skill-title"><u><%= comment.skill %></u></h1>
+          <h2 class="skill-details">
+            方法、詳細<br />
+            <%= comment.comment %>
+          </h2>
+          <p class="date text-muted">Date: <%= comment.date %></p>
+          <form
+            class="like-form d-flex align-items-center"
+            action="/like/<%= comment.username %>/<%= comment.skill %>"
+            method="post"
+          >
+            <button type="submit" class="btn btn-success mr-2">Like</button>
+            <span><%= comment.likes %> Likes</span>
+            <input
+              type="hidden"
+              name="redirect"
+              value="/user/<%= comment.username %>"
+            />
+          </form>
+        </div>
+        <% } %>
+      </div>
+      <p class="text-center mt-4"><a href="/">みんなのとくぎへ</a></p>
+    </div>
   </body>
 </html>

@@ -26,13 +26,15 @@ body {
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
 }
-h2 {
-  color: #333;
+.header-img > h1 {
+  font-size: 42px;
+  font-family: 'Hannari', sans-serif;
   text-align: center;
   padding-top: 60px;
+  /* font-weight: 600 !important; */
 }
 .btn {
-  padding-top: 90px;
+  padding: 1.8rem !important;
 }
 .btn1 {
   color: black;

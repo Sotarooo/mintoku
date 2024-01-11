@@ -30,9 +30,11 @@ body {
 
 /* Detail style */
 .skill-details {
+  font-size: 15px;
+}
+.skill-details > .skill-details1 {
   font-size: 18px;
 }
-
 /* Comment date style */
 .date {
   font-size: 14px;

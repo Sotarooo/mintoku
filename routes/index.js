@@ -32,7 +32,14 @@ router.get('/', (req, res, next) => {
     // default to newest if no sort specified or if 'newest' is specified
     comments.sort((a, b) => new Date(b.date) - new Date(a.date)); // descending order by date
   }
-  res.render('index', { title: 'みんなのとくぎ', comments: comments });
+  let n = 4;
+  let isSP = false;
+  const userAgent = req.headers['user-agent'];
+  if (userAgent.match(/iPhone|Android.+Mobile/)) {
+    n = 2;
+    isSP = true;
+  }
+  res.render('index', { title: 'みんなのとくぎ', comments: comments, n: n , isSP: isSP});
 });
 
 // GET comment page

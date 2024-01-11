@@ -1,121 +1,128 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/earlyaccess/hannari.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body style="background-color: #f2ffff">
-    <div class="header-img">
-      <img src="image/image1.png" />
-      <h1 class="text-center"><%= title %></h1>
-      <h5 class="title2">
-        "とくぎ"に困ってるあなたへ。しょうもない"とくぎ"を紹介するサイト。
-      </h5>
-      <div style="height: 90px"></div>
+<!DOCTYPE html> <% if (isSP) { %>
+<html style="font-size: 12px" class="SP">
+  <% } else {%>
+  <html>
+    <% } %>
+    <head>
+      <title><%= title %></title>
+      <meta name="viewport" , content="width=device-width,initial-scale=1" />
+      <link type="text/css" rel="stylesheet" href="css/style.css" />
+      <link
+        href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/earlyaccess/hannari.css"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous"
+      />
+    </head>
+    <body style="background-color: #f2ffff">
+      <div class="header-img">
+        <img src="image/image1.png" />
+        <h1 class="text-center"><%= title %></h1>
+        <h5 class="title2">
+          "とくぎ"に困ってるあなたへ。<% if (isSP) { %><br /><% }
+          %>しょうもない"とくぎ"を紹介するサイト。
+        </h5>
+        <div class="btn-space"></div>
 
-      <a class="text-center background-color: #f2ffff btn1" href="/comment"
-        >とくぎを投稿</a
-      >
-    </div>
-
-    <div class="mt-4">
-      <div class="sort-options mb4">
-        <a href="/?sort=likes" class="btn2">いいね順　　|</a>
-        <a href="/?sort=oldest" class="btn2">古い順</a>
-        <a href="/" class="btn2">| 　　新しい順</a>
+        <a class="text-center background-color: #f2ffff btn1" href="/comment"
+          >とくぎを投稿</a
+        >
       </div>
 
-      <table>
-        <% for (let i = 0; i < comments.length; i++) { let comment =
-        comments[i]; let isNewRow = i % 4 === 0; let isEndOfRow = (i + 1) % 4
-        === 0 || i === comments.length - 1; %> <% if (isNewRow) { %>
-        <!-- Start a new row every 4th comment -->
-        <tr>
-          <% } %>
-          <td class="tokugi-card-td">
-            <div class="card1 tokugi-card">
-              <div class="card-body">
-                <a href="/user/<%= comment.username %>">
-                  <div class="card-content">
-                    <p class="card-title"><%= comment.skill %></p>
-                    <p class="card-text" style="margin-bottom: 0">
-                      主: <%= comment.username %><br />
-                    </p>
+      <div class="mt-4">
+        <div class="sort-options mb4">
+          <a href="/?sort=likes" class="btn2">いいね順　　|</a>
+          <a href="/?sort=oldest" class="btn2">古い順</a>
+          <a href="/" class="btn2">| 　　新しい順</a>
+        </div>
+
+        <table class="tokugi-table">
+          <% for (let i = 0; i < comments.length; i++) { let comment =
+          comments[i]; let isNewRow = i % n === 0; let isEndOfRow = (i + 1) % n
+          === 0 || i === comments.length - 1; %> <% if (isNewRow) { %>
+          <!-- Start a new row every 4th comment -->
+          <tr>
+            <% } %>
+            <td class="tokugi-card-td">
+              <div class="card1 tokugi-card">
+                <div class="card-body">
+                  <a href="/user/<%= comment.username %>">
+                    <div class="card-content">
+                      <p class="card-title"><%= comment.skill %></p>
+                      <p class="card-text" style="margin-bottom: 0">
+                        主: <%= comment.username %><br />
+                      </p>
+                    </div>
+                  </a>
+
+                  <form
+                    action="/like/<%= comment.username %>/<%= comment.skill %>"
+                    method="post"
+                  >
+                    <button type="submit" class="heart">💙</button>
+                    <span><%= comment.likes %> Likes</span>
+                  </form>
+
+                  <div class="date">
+                    <p><%= comment.date %></p>
                   </div>
-                </a>
-
-                <form
-                  action="/like/<%= comment.username %>/<%= comment.skill %>"
-                  method="post"
-                >
-                  <button type="submit" class="heart">💙</button>
-                  <span><%= comment.likes %> Likes</span>
-                </form>
-
-                <div class="date">
-                  <p><%= comment.date %></p>
                 </div>
               </div>
-            </div>
-          </td>
-          <% if (isEndOfRow) { %>
-          <!-- Close the row every 4th comment or if it's the last comment -->
-        </tr>
-        <% } %> <% } %>
-      </table>
-    </div>
+            </td>
+            <% if (isEndOfRow) { %>
+            <!-- Close the row every 4th comment or if it's the last comment -->
+          </tr>
+          <% } %> <% } %>
+        </table>
+      </div>
 
-    <script>
-      function resizeCard(tokugi_card_td) {
-        tokugi_card_td.style.height = `${
-          tokugi_card_td.getBoundingClientRect().height
-        }px`;
-      }
-
-      const resizeObserver = new ResizeObserver((entries) => {
-        for (let i = 0; i < entries.length; i++) {
-          const tokugi_card_td = entries[i].target;
+      <script>
+        function resizeCard(tokugi_card_td) {
+          tokugi_card_td.style.height = `${
+            tokugi_card_td.getBoundingClientRect().height
+          }px`;
         }
-      });
-      const tokugi_card_tds = document.getElementsByClassName('tokugi-card-td');
-      for (let i = 0; i < tokugi_card_tds.length; i++) {
-        const tokugi_card_td = tokugi_card_tds[i];
-        resizeCard(tokugi_card_td);
-        resizeObserver.observe(tokugi_card_td);
-      }
-    </script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+        const resizeObserver = new ResizeObserver((entries) => {
+          for (let i = 0; i < entries.length; i++) {
+            const tokugi_card_td = entries[i].target;
+          }
+        });
+        const tokugi_card_tds =
+          document.getElementsByClassName('tokugi-card-td');
+        for (let i = 0; i < tokugi_card_tds.length; i++) {
+          const tokugi_card_td = tokugi_card_tds[i];
+          resizeCard(tokugi_card_td);
+          resizeObserver.observe(tokugi_card_td);
+        }
+      </script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"
+      ></script>
+    </body>
+  </html>
 </html>

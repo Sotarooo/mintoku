@@ -28,19 +28,6 @@ body {
   color: #0056b3; /* Dark blue color for skills */
 }
 
-/* Detail style */
-.skill-details {
-<<<<<<< HEAD
-  font-size: 15px;
-}
-.skill-details > .skill-details1 {
-  font-size: 18px;
-}
-=======
-  font-size: 18px;
-}
-
->>>>>>> 15a276463d51ad487ce0bc11beb0e841a3bd2c67
 /* Comment date style */
 .date {
   font-size: 14px;

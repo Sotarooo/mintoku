@@ -13,7 +13,7 @@
   <body>
     <div class="container mt-5">
       <header class="header-img text-center mb-3">
-        <img src="image/image1.png" class="img-fluid" alt="Header Image" />
+        <img src="/image/image1.png" class="img-fluid" alt="Header Image" />
       </header>
       <h2 class="text-center mb-3"><%= userComments[0].username %> のとくぎ</h2>
       <div class="comments-list">
@@ -22,11 +22,8 @@
           <h1 class="skill-title"><u><%= comment.skill %></u></h1>
           <h2 class="skill-details">
             方法、詳細<br />
-<<<<<<< HEAD
+
             <div class="skill-details1"><%= comment.comment %></div>
-=======
-            <%= comment.comment %>
->>>>>>> 15a276463d51ad487ce0bc11beb0e841a3bd2c67
           </h2>
           <p class="date text-muted">Date: <%= comment.date %></p>
           <form

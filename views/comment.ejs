@@ -5,6 +5,7 @@
     <% } %>
     <head>
       <title>とくぎ投稿</title>
+      <meta name="viewport" , content="width=device-width,initial-scale=1" />
       <link rel="stylesheet" href="css/comment.css" />
       <link
         href="https://fonts.googleapis.com/earlyaccess/hannari.css"
@@ -17,14 +18,13 @@
         crossorigin="anonymous"
       />
     </head>
-    <body style="background-color: #f2ffff">
+    <body>
       <div class="header-img">
         <img src="/image/image1.png" />
         <h1>しょうもない"とくぎ"<% if (isSP) { %><br /><% } %>をおしえてね</h1>
 
-        <div class="btn">
-          <a class="text-center btn1" href="/">ホームに戻る</a>
-        </div>
+        <div class="btn-space"></div>
+        <a class="btn1" href="/">ホームに戻る</a>
       </div>
       <form action="/comment" method="post">
         <label for="username">ユーザー名</label>

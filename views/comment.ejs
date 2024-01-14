@@ -1,67 +1,71 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="css/comment.css" />
-    <link
-      href="https://fonts.googleapis.com/earlyaccess/hannari.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body style="background-color: #f2ffff">
-    <div class="header-img">
-      <img src="/image/image1.png" />
-      <h1><%= title %></h1>
+<!DOCTYPE html><% if (isSP) { %>
+<html style="font-size: 12px" class="SP">
+  <% } else {%>
+  <html>
+    <% } %>
+    <head>
+      <title>とくぎ投稿</title>
+      <link rel="stylesheet" href="css/comment.css" />
+      <link
+        href="https://fonts.googleapis.com/earlyaccess/hannari.css"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous"
+      />
+    </head>
+    <body style="background-color: #f2ffff">
+      <div class="header-img">
+        <img src="/image/image1.png" />
+        <h1>しょうもない"とくぎ"<% if (isSP) { %><br /><% } %>をおしえてね</h1>
 
-      <div class="btn">
-        <a class="text-center btn1" href="/">ホームに戻る</a>
+        <div class="btn">
+          <a class="text-center btn1" href="/">ホームに戻る</a>
+        </div>
       </div>
-    </div>
-    <form action="/comment" method="post">
-      <label for="username">ユーザー名</label>
-      <input type="text" id="username" name="username" required /><br />
+      <form action="/comment" method="post">
+        <label for="username">ユーザー名</label>
+        <input type="text" id="username" name="username" required /><br />
 
-      <label for="skill">特技のタイトル</label>
-      <input type="text" id="skill" name="skill" required /><br />
+        <label for="skill">特技のタイトル</label>
+        <input type="text" id="skill" name="skill" required /><br />
 
-      <label for="comment">やり方、手順、コツなど</label>
-      <textarea id="comment" name="comment" required></textarea><br />
-      <button type="submit" onclick="return validateForm()">
-        とくぎを投稿
-      </button>
-    </form>
+        <label for="comment">やり方、手順、コツなど</label>
+        <textarea id="comment" name="comment" required></textarea><br />
+        <button type="submit" onclick="return validateForm()">
+          とくぎを投稿
+        </button>
+      </form>
 
-    <script>
-      function validateForm() {
-        // "skill"フィールドの値を取得
-        var skillField = document.getElementById('skill');
-        var skillValue = skillField.value.trim(); // 前後のスペースを削除
+      <script>
+        function validateForm() {
+          // "skill"フィールドの値を取得
+          var skillField = document.getElementById('skill');
+          var skillValue = skillField.value.trim(); // 前後のスペースを削除
 
-        // スキルタイトルの文字数が27を超えるかを確認
-        if (skillValue.length > 27) {
-          alert('スキルタイトルは27文字以下で入力してください。');
-          return false; // フォームの送信をブロック
+          // スキルタイトルの文字数が27を超えるかを確認
+          if (skillValue.length > 20) {
+            alert('スキルタイトルは20文字以下で入力してください。');
+            return false; // フォームの送信をブロック
+          }
+
+          // "username"フィールドの値を取得
+          var usernameField = document.getElementById('username');
+          var usernameValue = usernameField.value.trim(); // 前後のスペースを削除
+
+          // ユーザーネームの文字数が9を超えるかを確認
+          if (usernameValue.length > 9) {
+            alert('usernameは9文字以下で入力してください。');
+            return false; // フォームの送信をブロック
+          }
+
+          // スキルタイトルとユーザーネームが妥当な場合、フォームの送信を続行
+          return true;
         }
-
-        // "username"フィールドの値を取得
-        var usernameField = document.getElementById('username');
-        var usernameValue = usernameField.value.trim(); // 前後のスペースを削除
-
-        // ユーザーネームの文字数が9を超えるかを確認
-        if (usernameValue.length > 9) {
-          alert('usernameは9文字以下で入力してください。');
-          return false; // フォームの送信をブロック
-        }
-
-        // スキルタイトルとユーザーネームが妥当な場合、フォームの送信を続行
-        return true;
-      }
-    </script>
-  </body>
+      </script>
+    </body>
+  </html>
 </html>

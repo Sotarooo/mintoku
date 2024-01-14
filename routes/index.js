@@ -39,12 +39,24 @@ router.get('/', (req, res, next) => {
     n = 2;
     isSP = true;
   }
-  res.render('index', { title: 'みんなのとくぎ', comments: comments, n: n , isSP: isSP});
+  res.render('index', {
+    title: 'みんなのとくぎ',
+    comments: comments,
+    n: n,
+    isSP: isSP,
+  });
 });
 
 // GET comment page
 router.get('/comment', (req, res, next) => {
-  res.render('comment', { title: 'しょうもない"とくぎ"をおしえてね' });
+  let isSP = false;
+  const userAgent = req.headers['user-agent'];
+  if (userAgent.match(/iPhone|Android.+Mobile/)) {
+    isSP = true;
+  }
+  res.render('comment', {
+    isSP: isSP,
+  });
 });
 
 // POST to add a comment

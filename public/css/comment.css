@@ -11,8 +11,11 @@ body {
   text-align: center;
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow-y: clip;
   height: 200px;
+}
+.SP .header-img {
+  height: 240px;
 }
 
 .header-img > img {
@@ -26,12 +29,18 @@ body {
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
 }
+
+.SP .header-img > img {
+  min-width: calc(213px / 1024 * 1792);
+}
+
 .header-img > h1 {
+  color: #f4f4f4;
   font-size: 42px;
   font-family: 'Hannari', sans-serif;
   text-align: center;
   padding-top: 60px;
-  /* font-weight: 600 !important; */
+  font-weight: 600 !important;
 }
 .btn {
   padding: 1.8rem !important;

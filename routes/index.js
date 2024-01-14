@@ -77,11 +77,15 @@ router.get('/user/:username', (req, res, next) => {
   const userComments = comments.filter(
     (comment) => comment.username === username
   );
-
+  let isSP = false;
+  const userAgent = req.headers['user-agent'];
+  if (userAgent.match(/iPhone|Android.+Mobile/)) {
+    isSP = true;
+  }
   if (userComments.length === 0) {
     res.send('Comment not found');
   } else {
-    res.render('user-comments', { userComments });
+    res.render('user-comments', { userComments, isSP: isSP });
   }
 });
 

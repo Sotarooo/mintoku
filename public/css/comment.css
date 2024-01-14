@@ -88,7 +88,8 @@ form textarea {
   margin: auto;
 }
 
-form button {
+.btn2 {
+  text-align: center;
   background: #28a745;
   color: white;
   border: none;
@@ -96,6 +97,8 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 form button:hover {

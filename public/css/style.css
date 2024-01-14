@@ -4,7 +4,6 @@ body {
   align-items: center;
   background-color: #f2ffff !important;
 }
-
 .header-img {
   text-align: center;
   position: relative;
@@ -12,11 +11,9 @@ body {
   overflow: hidden;
   height: 400px;
 }
-
 .SP .header-img {
   height: 213px;
 }
-
 .header-img > img {
   min-width: calc(400px / 1024 * 1792);
   width: 100vw;

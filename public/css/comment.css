@@ -1,21 +1,18 @@
-/* General styles */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2ffff !important;
 }
 
 .header-img {
   text-align: center;
   position: relative;
   width: 100%;
-  overflow-y: clip;
+  overflow: hidden;
   height: 200px;
 }
 .SP .header-img {
-  height: 240px;
+  height: 213px;
 }
 
 .header-img > img {
@@ -35,17 +32,19 @@ body {
 }
 
 .header-img > h1 {
-  color: #f4f4f4;
-  font-size: 42px;
+  font-size: 2.6rem;
+  color: #f2ffff;
   font-family: 'Hannari', sans-serif;
   text-align: center;
   padding-top: 60px;
   font-weight: 600 !important;
 }
-.btn {
-  padding: 1.8rem !important;
+.btn-space {
+  height: 28px;
 }
+
 .btn1 {
+  text-align: center;
   color: black;
   background-color: #f2ffff;
   border: 1px solid transparent;
@@ -54,14 +53,6 @@ body {
   border-radius: 11px;
   box-shadow: 5px 10px 8px #4d5c5c;
 }
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
 
 /* Form styles */
 form {
@@ -69,8 +60,13 @@ form {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  margin: 50px auto;
+  min-width: 700px;
+}
+
+.SP form {
   margin: 20px auto;
+  min-width: 300px;
 }
 
 form label {
@@ -90,9 +86,10 @@ form textarea {
 
 form textarea {
   height: 100px;
+  margin: auto;
 }
 
-form button {
+.btn2 {
   background: #28a745;
   color: white;
   border: none;
@@ -100,6 +97,9 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  align-items: center;
 }
 
 form button:hover {

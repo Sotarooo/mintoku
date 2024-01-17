@@ -5,8 +5,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var i18n = require('i18n');
 
 var app = express();
+
+i18n.configure({
+  locales: ['ja', 'en'], // 使用する言語
+  directory: __dirname + '/locales', // 翻訳ファイルのディレクトリ
+  defaultLocale: 'ja', // デフォルトの言語
+  queryParameter: 'lang', // URLのクエリパラメータで言語を切り替える
+  cookie: 'lang',
+  autoReload: true,
+  updateFiles: true,
+  syncFiles: true,
+});
 
 const sessionMiddleware = session({
   secret: 'my secret key',
@@ -33,6 +45,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(i18n.init);
 
 // Define routes
 var indexRouter = require('./routes/index');

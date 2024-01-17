@@ -5,7 +5,7 @@
     <% } %>
     <head>
       <meta name="viewport" , content="width=device-width,initial-scale=1" />
-      <title><%= userComments[0].username %> のコメント</title>
+      <title><%= userComments[0].username %><%= __('utitle') %></title>
       <link rel="stylesheet" href="/css/user-comments.css" />
       <link
         href="https://fonts.googleapis.com/earlyaccess/hannari.css"
@@ -26,14 +26,16 @@
       <div class="header-img">
         <img src="/image/image1.png" />
 
-        <h1 class="text-center"><%= userComments[0].username %> のとくぎ</h1>
+        <h1 class="text-center">
+          <%= userComments[0].username %><%= __('utitle') %>
+        </h1>
       </div>
       <div class="comments-list">
         <% for (let comment of userComments) { %>
         <div class="comment mb-4">
           <h1 class="skill-title"><u><%= comment.skill %></u></h1>
           <h2 class="skill-details">
-            方法、詳細<br />
+            <%= __('detail') %><br />
 
             <div class="skill-details1">
               <%- comment.comment.replace(/\n/g, '<br />') %>
@@ -57,7 +59,7 @@
         </div>
         <% } %>
       </div>
-      <a class="btn1" href="/">みんなのとくぎへ</a>
+      <a class="btn1" href="/"><%= __('cbtn1') %></a>
     </body>
   </html>
 </html>

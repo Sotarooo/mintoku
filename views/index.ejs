@@ -4,7 +4,7 @@
   <html>
     <% } %>
     <head>
-      <title><%= title %></title>
+      <title><%= __('title') %></title>
       <meta name="viewport" , content="width=device-width,initial-scale=1" />
       <link rel="stylesheet" href="css/style.css" />
       <link
@@ -24,21 +24,29 @@
     </head>
     <body>
       <div class="header-img">
+        <!-- <div>
+          <a href="?lang=en">English</a> |
+          <a href="?lang=ja">日本語</a>
+        </div> -->
+        <div class="language-selector">
+          <select id="language-dropdown">
+            <option value="ja">Japanese</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+
         <img src="image/image1.png" />
-        <h1 class="text-center"><%= title %></h1>
-        <h5 class="title2">
-          "とくぎ"に困ってるあなたへ。<% if (isSP) { %><br /><% }
-          %>しょうもない"とくぎ"を紹介するサイト。
-        </h5>
+        <h1 class="text-center"><%= __('title') %></h1>
+        <h5 class="title2"><%= __('title2') %></h5>
         <div class="btn-space"></div>
-        <a class="btn1" href="/comment">とくぎを投稿</a>
+        <a class="btn1" href="/comment"><%= __('btn1') %></a>
       </div>
 
       <div class="mt-4">
         <div class="sort-options mb4">
-          <a href="/?sort=likes" class="btn2">いいね順　　|</a>
-          <a href="/?sort=oldest" class="btn2">古い順</a>
-          <a href="/" class="btn2">| 　　新しい順</a>
+          <a href="/?sort=likes" class="btn2"><%= __('btn2') %>　　|</a>
+          <a href="/?sort=oldest" class="btn2"><%= __('btn3') %></a>
+          <a href="/" class="btn2">| 　　<%= __('btn4') %></a>
         </div>
 
         <table class="tokugi-table">
@@ -116,6 +124,18 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"
       ></script>
+
+      <script>
+        document
+          .getElementById('language-dropdown')
+          .addEventListener('change', function () {
+            window.location.search = '?lang=' + this.value;
+          });
+
+        // ページロード時に現在の言語を選択
+        document.getElementById('language-dropdown').value =
+          new URLSearchParams(window.location.search).get('lang') || 'ja';
+      </script>
     </body>
   </html>
 </html>

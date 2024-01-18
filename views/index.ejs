@@ -58,16 +58,14 @@
           <tr>
             <% } %>
             <td class="tokugi-card-td">
-              <div class="card1 tokugi-card">
+              <a class="card1 tokugi-card" href="/user/<%= comment.username %>">
                 <div class="card-body">
-                  <a href="/user/<%= comment.username %>">
-                    <div class="card-content">
-                      <p class="card-title"><%= comment.skill %></p>
-                      <p class="card-text" style="margin-bottom: 0">
-                        主: <%= comment.username %><br />
-                      </p>
-                    </div>
-                  </a>
+                  <div class="card-content">
+                    <p class="card-title"><%= comment.skill %></p>
+                    <p class="card-text" style="margin-bottom: 0">
+                      主: <%= comment.username %><br />
+                    </p>
+                  </div>
 
                   <form action="/like/<%= comment.id %>" method="post">
                     <button type="submit" class="heart">💙</button>
@@ -78,7 +76,7 @@
                     <p><%= comment.date %></p>
                   </div>
                 </div>
-              </div>
+              </a>
             </td>
             <% if (isEndOfRow) { %>
             <!-- Close the row every 4th comment or if it's the last comment -->

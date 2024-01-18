@@ -46,6 +46,8 @@ router.get('/', (req, res, next) => {
   }
   req.setLocale(selectedLang);
 
+  let langClass = 'lang-' + selectedLang; // デフォルトは日本語
+
   res.render('index', {
     title: res.__('title'),
     title2: res.__('title2'),
@@ -56,6 +58,7 @@ router.get('/', (req, res, next) => {
     comments: comments,
     n: n,
     isSP: isSP,
+    langClass: langClass,
   });
 });
 
@@ -66,6 +69,12 @@ router.get('/comment', (req, res, next) => {
   if (userAgent.match(/iPhone|Android.+Mobile/)) {
     isSP = true;
   }
+  let selectedLang = req.cookies.lang;
+  if (req.query.lang) {
+    selectedLang = req.query.lang;
+  }
+  let langClass = 'lang-' + selectedLang;
+
   res.render('comment', {
     ctitle: res.__('ctitle'),
     ctitle2: res.__('ctitle2'),
@@ -73,7 +82,9 @@ router.get('/comment', (req, res, next) => {
     form1: res.__('form1'),
     form2: res.__('form2'),
     form3: res.__('form3'),
+    submit: res.__('submit'),
     isSP: isSP,
+    langClass: langClass,
   });
 });
 

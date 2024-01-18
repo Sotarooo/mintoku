@@ -56,9 +56,14 @@ body {
   font-weight: 600;
   color: #f2ffff;
 }
-.SP .header-img > h1 {
+.SP .header-img > .lang-ja {
+  margin-top: 43px;
+  margin-bottom: 20px;
+}
+.SP .header-img > .lang-en {
   margin-top: 40px;
-  margin-bottom: 15px;
+  font-size: 30px;
+  margin-bottom: 8px;
 }
 .tokugi-table {
   margin: 15px;
@@ -81,9 +86,10 @@ body {
 .title2 {
   text-align: center;
   color: #000;
-  /* font-weight: 900; */
-  /* -webkit-text-stroke: 0.5px #fff; */
   color: #f2ffff;
+}
+.title2.mobile {
+  white-space: pre-line; /* 改行を保持する */
 }
 
 .btn1 {
@@ -102,7 +108,9 @@ body {
   font-size: 1.25em;
   text-align: center;
 }
-
+.lang-en .sort-options {
+  margin: 20px 0;
+}
 .sort-options a:hover {
   text-decoration: none;
 }

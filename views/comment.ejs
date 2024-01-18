@@ -21,9 +21,8 @@
     <body>
       <div class="header-img">
         <img src="/image/image1.png" />
-        <h1><%= __('ctitle2') %></h1>
+        <h1 class="<%= langClass %>"><%= __('ctitle2') %></h1>
 
-        <div class="btn-space"></div>
         <a class="btn1" href="/"><%= __('cbtn') %></a>
       </div>
       <form action="/comment" method="post">
@@ -35,9 +34,11 @@
 
         <label for="comment"><%= __('form3') %></label>
         <textarea id="comment" name="comment" required></textarea><br />
-        <button class="toko" type="submit" onclick="return validateForm()">
-          とくぎを投稿
-        </button>
+        <div class="<%= langClass %>">
+          <button class="toko" type="submit" onclick="return validateForm()">
+            <%= __('submit') %>
+          </button>
+        </div>
       </form>
 
       <script>

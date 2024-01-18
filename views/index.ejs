@@ -24,10 +24,6 @@
     </head>
     <body>
       <div class="header-img">
-        <!-- <div>
-          <a href="?lang=en">English</a> |
-          <a href="?lang=ja">日本語</a>
-        </div> -->
         <div class="language-selector">
           <select id="language-dropdown">
             <option value="ja">Japanese</option>
@@ -36,17 +32,22 @@
         </div>
 
         <img src="image/image1.png" />
-        <h1 class="text-center"><%= __('title') %></h1>
-        <h5 class="title2"><%= __('title2') %></h5>
+
+        <h1 class="<%= langClass %>"><%= __('title') %></h1>
+
+        <h5 class="title2 <%= isSP ? 'mobile' : '' %>"><%= __('title2') %></h5>
+
         <div class="btn-space"></div>
         <a class="btn1" href="/comment"><%= __('btn1') %></a>
       </div>
 
       <div class="mt-4">
-        <div class="sort-options mb4">
-          <a href="/?sort=likes" class="btn2"><%= __('btn2') %>　　|</a>
-          <a href="/?sort=oldest" class="btn2"><%= __('btn3') %></a>
-          <a href="/" class="btn2">| 　　<%= __('btn4') %></a>
+        <div class="<%= langClass %>">
+          <div class="sort-options mb4">
+            <a href="/?sort=likes" class="btn2"><%= __('btn2') %>　　|</a>
+            <a href="/?sort=oldest" class="btn2"><%= __('btn3') %></a>
+            <a href="/" class="btn2">| 　　<%= __('btn4') %></a>
+          </div>
         </div>
 
         <table class="tokugi-table">

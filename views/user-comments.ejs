@@ -55,7 +55,9 @@
               value="/user/<%= comment.username %>"
             />
           </form>
-          <p class="date text-muted">Date: <%= comment.date %></p>
+          <p class="date text-muted">
+            Date: <%= new Date(comment.date).toLocaleString() %>
+          </p>
         </div>
         <% } %>
       </div>

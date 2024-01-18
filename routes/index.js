@@ -128,13 +128,14 @@ router.get('/user/:username', async (req, res, next) => {
 });
 
 //like feature
-router.post('/like/:username/:skill', async (req, res, next) => {
+router.post('/like/:id', async (req, res, next) => {
   // const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
-  const comments = await api.get();
-  const { username, skill } = req.params;
-  const commentToLike = comments.find(
-    (comment) => comment.username === username && comment.skill === skill
-  );
+  const { id } = req.params;
+  const commentToLike = await api.getId(id);
+  // const { username, skill } = req.params;
+  // const commentToLike = comments.find(
+  //   (comment) => comment.username === username && comment.skill === skill
+  // );
 
   if (commentToLike) {
     commentToLike.likes += 1;
@@ -143,7 +144,7 @@ router.post('/like/:username/:skill', async (req, res, next) => {
     //   JSON.stringify(comments, null, 2),
     //   'utf8'
     // );
-    await api.put(comments);
+    await api.patch(id, { likes: commentToLike.likes });
 
     // Redirect based on hidden input value
     const redirectURL = req.body.redirect || '/'; // Fallback to home page if not provided

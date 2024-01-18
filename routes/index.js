@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const moment = require('moment-timezone');
 const api = require('./api');
+const i18n = require('i18n');
 
 // Temporary in-memory storage for comments (Replace with a database in production)
 let comments = [];
@@ -41,12 +42,13 @@ router.get('/', async (req, res, next) => {
     n = 2;
     isSP = true;
   }
+  i18n.setLocale(req, req.cookies.lang || 'ja');
   let selectedLang = req.cookies.lang || 'ja'; // デフォルトは日本語
-  if (req.query.lang) {
-    selectedLang = req.query.lang;
-    res.cookie('lang', selectedLang, { maxAge: 900000, httpOnly: true });
-  }
-  req.setLocale(selectedLang);
+  // if (req.query.lang) {
+  //   selectedLang = req.query.lang;
+  //   res.cookie('lang', selectedLang, { maxAge: 900000, httpOnly: true });
+  // }
+  // req.setLocale(selectedLang);
 
   let langClass = 'lang-' + selectedLang; // デフォルトは日本語
 
@@ -71,7 +73,8 @@ router.get('/comment', (req, res, next) => {
   if (userAgent.match(/iPhone|Android.+Mobile/)) {
     isSP = true;
   }
-  let selectedLang = req.cookies.lang;
+  i18n.setLocale(req, req.cookies.lang || 'ja');
+  let selectedLang = req.cookies.lang || 'ja';
   if (req.query.lang) {
     selectedLang = req.query.lang;
   }
@@ -107,7 +110,8 @@ router.post('/comment', async (req, res, next) => {
 router.get('/user/:username', async (req, res, next) => {
   // const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
   const comments = await api.get();
-  const username = req.params.username;
+  i18n.setLocale(req, req.cookies.lang || 'ja');
+  const username = req.params.username || 'ja';
   const userComments = comments.filter(
     (comment) => comment.username === username
   );

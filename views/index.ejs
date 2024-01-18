@@ -68,8 +68,10 @@
                   </div>
 
                   <form action="/like/<%= comment.id %>" method="post">
-                    <button type="submit" class="heart">💙</button>
-                    <span><%= comment.likes %> Likes</span>
+                    <button type="submit" class="heart">
+                      <span class="heart-icon">💙</span>
+                      <%= comment.likes %> Likes
+                    </button>
                   </form>
 
                   <div class="date">
@@ -122,15 +124,22 @@
       ></script>
 
       <script>
+        let langClass = '<%- langClass %>';
+
         document
           .getElementById('language-dropdown')
           .addEventListener('change', function () {
-            window.location.search = '?lang=' + this.value;
+            // window.location.search = '?lang=' + this.value;
+
+            document.cookie = `lang=${this.value};max-age=900000;`;
+            console.log(document.cookie);
+            window.location.reload();
           });
 
         // ページロード時に現在の言語を選択
         document.getElementById('language-dropdown').value =
-          new URLSearchParams(window.location.search).get('lang') || 'ja';
+          langClass == 'lang-en' ? 'en' : 'ja';
+        // new URLSearchParams(window.location.search).get('lang') || 'ja';
       </script>
     </body>
   </html>

@@ -60,7 +60,7 @@ body {
   margin-top: 43px;
   margin-bottom: 20px;
 }
-.SP .header-img > .lang-en {.heart
+.SP .header-img > .lang-en {
   margin-top: 40px;
   font-size: 30px;
   margin-bottom: 8px;
@@ -131,6 +131,12 @@ td.tokugi-card-td {
   height: 1mm;
   max-width: 335px;
 }
+.tokugi-card {
+  text-decoration: none;
+}
+.tokugi-card:hover {
+  text-decoration: none;
+}
 .SP td.tokugi-card-td {
   padding: 15px 10px;
 }
@@ -163,10 +169,13 @@ td.tokugi-card-td {
   border: 0;
   padding: 0;
   background-color: transparent;
-  font-size: 115%;
-  color: rgb(144, 206, 227);
   cursor: pointer;
 }
+.heart-icon {
+  font-size: 115%;
+  color: rgb(144, 206, 227);
+}
+
 .container {
   text-align: center;
   padding: 40px;
@@ -177,6 +186,9 @@ td.tokugi-card-td {
   height: 400px;
   width: 100vw;
   max-width: 100vw !important;
+}
+.date {
+  color: #000;
 }
 
 .top-half,

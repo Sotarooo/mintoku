@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Han'; /* フォントの名前を設定 */
+  src: url('../fonts/HannariMincho-Regular.otf') format('opentype');
+}
 body {
   display: flex;
   flex-direction: column;
@@ -34,13 +38,30 @@ body {
 .header-img > h1 {
   font-size: 2.6rem;
   color: #f2ffff;
-  font-family: 'Hannari', sans-serif;
+  font-family: 'Han';
   text-align: center;
   padding-top: 60px;
   font-weight: 600 !important;
+  margin-bottom: 35px;
+}
+.SP .header-img > h1 {
+  font-size: 2.7rem;
+  padding-top: 80px;
+  font-weight: 600 !important;
+  white-space: pre-line;
+}
+.SP .header-img > .lang-ja {
+  padding-top: 63px;
+}
+.SP .header-img > .lang-en {
+  font-size: 2.1rem;
+  margin-bottom: 55px;
 }
 .btn-space {
   height: 28px;
+}
+.SP .lang-en .btn-space {
+  height: 50px;
 }
 
 .btn1 {
@@ -89,7 +110,7 @@ form textarea {
   margin: auto;
 }
 
-.btn2 {
+.toko {
   background: #28a745;
   color: white;
   border: none;
@@ -100,6 +121,13 @@ form textarea {
   margin-top: 10px;
   text-align: center;
   align-items: center;
+  margin-left: 260px;
+}
+.SP .lang-en .toko {
+  margin-left: 48px;
+}
+.SP .lang-ja .toko {
+  margin-left: 63px;
 }
 
 form button:hover {

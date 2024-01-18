@@ -124,5 +124,26 @@
     "comment": "1行にできるだけたくさんの文字数を稼ぐために、今頑張っています。\r\nこれは次の行です。",
     "likes": 1,
     "date": "2024-01-15T20:18:49"
+  },
+  {
+    "username": "se",
+    "skill": "sese",
+    "comment": "se",
+    "likes": 4,
+    "date": "2024-01-15T20:58:54"
+  },
+  {
+    "username": "ろっぽんぎ道場",
+    "skill": "グラスの栓抜き",
+    "comment": "グラスの栓抜きめっちゃ簡単にできる",
+    "likes": 0,
+    "date": "2024-01-18T13:00:08"
+  },
+  {
+    "username": "Marcy",
+    "skill": "Put away a garbage",
+    "comment": "Put a garbage immediately",
+    "likes": 0,
+    "date": "2024-01-18T13:04:41"
   }
 ]

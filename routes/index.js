@@ -39,11 +39,26 @@ router.get('/', (req, res, next) => {
     n = 2;
     isSP = true;
   }
+  let selectedLang = req.cookies.lang || 'ja'; // デフォルトは日本語
+  if (req.query.lang) {
+    selectedLang = req.query.lang;
+    res.cookie('lang', selectedLang, { maxAge: 900000, httpOnly: true });
+  }
+  req.setLocale(selectedLang);
+
+  let langClass = 'lang-' + selectedLang; // デフォルトは日本語
+
   res.render('index', {
-    title: 'みんなのとくぎ',
+    title: res.__('title'),
+    title2: res.__('title2'),
+    btn1: res.__('btn1'),
+    btn2: res.__('btn2'),
+    btn3: res.__('btn3'),
+    btn4: res.__('btn4'),
     comments: comments,
     n: n,
     isSP: isSP,
+    langClass: langClass,
   });
 });
 
@@ -54,8 +69,22 @@ router.get('/comment', (req, res, next) => {
   if (userAgent.match(/iPhone|Android.+Mobile/)) {
     isSP = true;
   }
+  let selectedLang = req.cookies.lang;
+  if (req.query.lang) {
+    selectedLang = req.query.lang;
+  }
+  let langClass = 'lang-' + selectedLang;
+
   res.render('comment', {
+    ctitle: res.__('ctitle'),
+    ctitle2: res.__('ctitle2'),
+    cbtn: res.__('cbtn'),
+    form1: res.__('form1'),
+    form2: res.__('form2'),
+    form3: res.__('form3'),
+    submit: res.__('submit'),
     isSP: isSP,
+    langClass: langClass,
   });
 });
 
@@ -85,7 +114,12 @@ router.get('/user/:username', (req, res, next) => {
   if (userComments.length === 0) {
     res.send('Comment not found');
   } else {
-    res.render('user-comments', { userComments, isSP: isSP });
+    res.render('user-comments', {
+      utitle: res.__('utitle'),
+      cbtn: res.__('detail'),
+      userComments,
+      isSP: isSP,
+    });
   }
 });
 

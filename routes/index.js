@@ -6,17 +6,17 @@ const moment = require('moment-timezone');
 // Temporary in-memory storage for comments (Replace with a database in production)
 let comments = [];
 
+// Initialize comments.json with an empty array if it doesn't exist
+if (!fs.existsSync('comments.json')) {
+  fs.writeFileSync('comments.json', '[]');
+}
+
 // Load comments from a file if available
 try {
   const data = fs.readFileSync('comments.json', 'utf8');
   comments = JSON.parse(data);
 } catch (err) {
   console.error('Error loading comments:', err);
-}
-
-// Initialize comments.json with an empty array if it doesn't exist
-if (!fs.existsSync('comments.json')) {
-  fs.writeFileSync('comments.json', '[]');
 }
 
 // GET home page

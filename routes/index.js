@@ -95,7 +95,8 @@ router.post('/comment', async (req, res, next) => {
   const { username, skill, comment } = req.body;
 
   // Gets the current date in "YYYY-MM-DDTHH:MM:SS" format
-  const date = moment.tz('Asia/Tokyo').format('YYYY-MM-DDTHH:mm:ss');
+  // const date = moment.tz('Asia/Tokyo').format('YYYY-MM-DDTHH:mm:ss');
+  const date = Date.now();
   // comments.push({ username, skill, comment, likes: 0, date });
   // fs.writeFileSync('comments.json', JSON.stringify(comments, null, 2), 'utf8');
   await api.post({ username, skill, comment, likes: 0, date });

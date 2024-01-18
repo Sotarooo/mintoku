@@ -2,26 +2,28 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const moment = require('moment-timezone');
+const api = require('./api');
 
 // Temporary in-memory storage for comments (Replace with a database in production)
 let comments = [];
 
 // Initialize comments.json with an empty array if it doesn't exist
-if (!fs.existsSync('comments.json')) {
-  fs.writeFileSync('comments.json', '[]');
-}
+// if (!fs.existsSync('comments.json')) {
+//   fs.writeFileSync('comments.json', '[]');
+// }
 
 // Load comments from a file if available
-try {
-  const data = fs.readFileSync('comments.json', 'utf8');
-  comments = JSON.parse(data);
-} catch (err) {
-  console.error('Error loading comments:', err);
-}
+// try {
+//   const data = fs.readFileSync('comments.json', 'utf8');
+//   comments = JSON.parse(data);
+// } catch (err) {
+//   console.error('Error loading comments:', err);
+// }
 
 // GET home page
-router.get('/', (req, res, next) => {
-  const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
+router.get('/', async (req, res, next) => {
+  // const comments = JSON.parse(fs.readFileSync('', 'utf8'));
+  const comments = await api.get();
   // Sorting based on query parameters
   const sort = req.query.sort;
   if (sort === 'likes') {
@@ -89,19 +91,21 @@ router.get('/comment', (req, res, next) => {
 });
 
 // POST to add a comment
-router.post('/comment', (req, res, next) => {
+router.post('/comment', async (req, res, next) => {
   const { username, skill, comment } = req.body;
 
   // Gets the current date in "YYYY-MM-DDTHH:MM:SS" format
   const date = moment.tz('Asia/Tokyo').format('YYYY-MM-DDTHH:mm:ss');
-  comments.push({ username, skill, comment, likes: 0, date });
-  fs.writeFileSync('comments.json', JSON.stringify(comments, null, 2), 'utf8');
+  // comments.push({ username, skill, comment, likes: 0, date });
+  // fs.writeFileSync('comments.json', JSON.stringify(comments, null, 2), 'utf8');
+  await api.post({ username, skill, comment, likes: 0, date });
   res.redirect('/');
 });
 
 // GET user-specific comments page
-router.get('/user/:username', (req, res, next) => {
-  const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
+router.get('/user/:username', async (req, res, next) => {
+  // const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
+  const comments = await api.get();
   const username = req.params.username;
   const userComments = comments.filter(
     (comment) => comment.username === username
@@ -124,20 +128,23 @@ router.get('/user/:username', (req, res, next) => {
 });
 
 //like feature
-router.post('/like/:username/:skill', (req, res, next) => {
-  const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
-  const { username, skill } = req.params;
-  const commentToLike = comments.find(
-    (comment) => comment.username === username && comment.skill === skill
-  );
+router.post('/like/:id', async (req, res, next) => {
+  // const comments = JSON.parse(fs.readFileSync('comments.json', 'utf8'));
+  const { id } = req.params;
+  const commentToLike = await api.getId(id);
+  // const { username, skill } = req.params;
+  // const commentToLike = comments.find(
+  //   (comment) => comment.username === username && comment.skill === skill
+  // );
 
   if (commentToLike) {
     commentToLike.likes += 1;
-    fs.writeFileSync(
-      'comments.json',
-      JSON.stringify(comments, null, 2),
-      'utf8'
-    );
+    // fs.writeFileSync(
+    //   'comments.json',
+    //   JSON.stringify(comments, null, 2),
+    //   'utf8'
+    // );
+    await api.patch(id, { likes: commentToLike.likes });
 
     // Redirect based on hidden input value
     const redirectURL = req.body.redirect || '/'; // Fallback to home page if not provided

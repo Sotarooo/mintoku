@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Han'; /* フォントの名前を設定 */
+  src: url('../fonts/HannariMincho-Regular.otf') format('opentype');
+}
 body {
   display: flex;
   flex-direction: column;
@@ -32,7 +36,7 @@ body {
 .header-img > h1 {
   font-size: 3.5rem;
   color: #f2ffff;
-  font-family: 'sans-serif', 'Hannari', '游明朝', 'Yu Mincho';
+  font-family: 'Han';
   text-align: center;
   padding-top: 60px;
   font-weight: 600 !important;

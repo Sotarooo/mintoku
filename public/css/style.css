@@ -60,7 +60,7 @@ body {
   margin-top: 43px;
   margin-bottom: 20px;
 }
-.SP .header-img > .lang-en {
+.SP .header-img > .lang-en {.heart
   margin-top: 40px;
   font-size: 30px;
   margin-bottom: 8px;
@@ -162,7 +162,7 @@ td.tokugi-card-td {
 .heart {
   border: 0;
   padding: 0;
-  background-color: #f2ffff;
+  background-color: transparent;
   font-size: 115%;
   color: rgb(144, 206, 227);
   cursor: pointer;

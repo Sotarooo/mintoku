@@ -166,14 +166,15 @@ td.tokugi-card-td {
   margin-bottom: 2em;
 }
 .heart {
+  font-weight: 300;
   border: 0;
   padding: 0;
   background-color: transparent;
   cursor: pointer;
+  color: black;
 }
 .heart-icon {
   font-size: 115%;
-  color: rgb(144, 206, 227);
 }
 
 .container {

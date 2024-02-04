@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const moment = require('moment-timezone');
 const api = require('./api');
 const i18n = require('i18n');
 

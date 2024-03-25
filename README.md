@@ -1,3 +1,3 @@
 # Mintoku
 
-特技に困ってるあなたへ。しょうもない特技を紹介するサイト。
+For those struggling with 'Talents'. A site to introduce useless 'Talents'.
